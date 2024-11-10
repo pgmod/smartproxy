@@ -91,7 +91,7 @@ func (p *Proxy) GetProxyUrl() *url.URL {
 
 func (p *Proxy) CreateTcpDialer() (proxy.Dialer, error) {
 
-	socks5 := p.Addr + ":" + fmt.Sprint(p)
+	socks5 := p.Addr + ":" + fmt.Sprint(p.Port)
 	return proxy.SOCKS5("tcp", socks5, &proxy.Auth{
 		User:     p.Auth.Login,
 		Password: p.Auth.Password,
